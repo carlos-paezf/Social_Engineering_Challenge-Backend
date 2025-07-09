@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { HintController } from './hint.controller';
 import { HintService } from './hint.service';
+import { HintController } from './hint.controller';
 
 @Module({
   controllers: [HintController],
-  providers: [HintService]
+  providers: [HintService],
 })
 export class HintModule {}
