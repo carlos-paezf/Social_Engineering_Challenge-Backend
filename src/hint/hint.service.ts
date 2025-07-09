@@ -1,26 +1,25 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateHintDto } from './dto/create-hint.dto';
-import { UpdateHintDto } from './dto/update-hint.dto';
+import { Hint } from './entities/hint.entity';
 
 @Injectable()
 export class HintService {
-  create(createHintDto: CreateHintDto) {
-    return 'This action adds a new hint';
+  constructor (
+    @InjectRepository( Hint ) private readonly hintRepo: Repository<Hint>
+  ) { }
+
+  create ( createHintDto: CreateHintDto ) {
+    const newHint = this.hintRepo.create( createHintDto );
+    return this.hintRepo.save( newHint );
   }
 
-  findAll() {
-    return `This action returns all hint`;
+  findAll (): Promise<Hint[]> {
+    return this.hintRepo.find( { order: { postDate: 'DESC' } } );
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} hint`;
-  }
-
-  update(id: number, updateHintDto: UpdateHintDto) {
-    return `This action updates a #${id} hint`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} hint`;
-  }
+  findOne ( id: string ): Promise<Hint | null> {
+    return this.hintRepo.findOneBy( { id } );
+  };
 }
