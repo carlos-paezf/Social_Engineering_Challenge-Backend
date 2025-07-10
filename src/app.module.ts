@@ -13,7 +13,7 @@ import { RankingModule } from './ranking/ranking.module';
   imports: [
     GroupModule, AuthModule, RankingModule, HintModule,
     TypeOrmModule.forRoot( {
-      type: "sqlite",
+      type: "better-sqlite3",
       database: "db.sqlite",
       entities: [ Hint ],
       synchronize: true
