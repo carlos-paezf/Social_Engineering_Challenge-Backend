@@ -11,13 +11,40 @@ const AppDataSource = new DataSource( {
 
 const hints: Partial<Hint>[] = [
     {
+        imageUrl: 'https://w1.pngwing.com/pngs/809/551/png-transparent-man-user-user-profile-male-user-account-avatar-client-symbol-thumbnail.png',
+        postDate: '2025-07-01T10:00:00Z',
+        description: 'Amo este gato, se parece a mi 🐱',
+        comments: [ '¡Qué lindo!', 'Tom es el mejor.' ],
+        likes: 32,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMvhvNLpapq5oSze1OrMKNVIFq0UXBzo1QcQ&s',
+        postDate: '2025-07-02T14:00:00Z',
+        description: 'Estamos contratando, envía tu CV a juanh@securemail.com 📩',
+        comments: [ 'Listo, enviado', '¿Cuánto pagan?' ],
+        likes: 20,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcyI9Cvp53aaP9XeRn-ZKbJDH2QaWC72O26A&s',
+        postDate: '2025-06-28T18:00:00Z',
+        description: 'Celebrando mis 32 con mi pastel favorito 🎂',
+        comments: [ 'Feliz cumple!', '¡Ese pastel se ve brutal!' ],
+        likes: 45,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
         imageUrl: '/assets/gato-tom.jpg',
         postDate: '2025-07-01T10:00:00Z',
         description: 'Amo este gato, se parece a mi 🐱',
         comments: [ '¡Qué lindo!', 'Tom es el mejor.' ],
         likes: 32,
         profileName: 'Juan Hacker',
-        profileAvatar: '/assets/avatars/juan.jpg',
+        profileAvatar: null,
     },
     {
         imageUrl: '/assets/post-oferta.jpg',
@@ -26,7 +53,7 @@ const hints: Partial<Hint>[] = [
         comments: [ 'Listo, enviado', '¿Cuánto pagan?' ],
         likes: 20,
         profileName: 'Juan Hacker',
-        profileAvatar: '/assets/avatars/juan.jpg',
+        profileAvatar: null,
     },
     {
         imageUrl: '/assets/cumple-juan.jpg',
@@ -35,7 +62,88 @@ const hints: Partial<Hint>[] = [
         comments: [ 'Feliz cumple!', '¡Ese pastel se ve brutal!' ],
         likes: 45,
         profileName: 'Juan Hacker',
-        profileAvatar: '/assets/avatars/juan.jpg',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/gato-tom.jpg',
+        postDate: '2025-07-01T10:00:00Z',
+        description: 'Amo este gato, se parece a mi 🐱',
+        comments: [ '¡Qué lindo!', 'Tom es el mejor.' ],
+        likes: 32,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/post-oferta.jpg',
+        postDate: '2025-07-02T14:00:00Z',
+        description: 'Estamos contratando, envía tu CV a juanh@securemail.com 📩',
+        comments: [ 'Listo, enviado', '¿Cuánto pagan?' ],
+        likes: 20,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/cumple-juan.jpg',
+        postDate: '2025-06-28T18:00:00Z',
+        description: 'Celebrando mis 32 con mi pastel favorito 🎂',
+        comments: [ 'Feliz cumple!', '¡Ese pastel se ve brutal!' ],
+        likes: 45,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/gato-tom.jpg',
+        postDate: '2025-07-01T10:00:00Z',
+        description: 'Amo este gato, se parece a mi 🐱',
+        comments: [ '¡Qué lindo!', 'Tom es el mejor.' ],
+        likes: 32,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/post-oferta.jpg',
+        postDate: '2025-07-02T14:00:00Z',
+        description: 'Estamos contratando, envía tu CV a juanh@securemail.com 📩',
+        comments: [ 'Listo, enviado', '¿Cuánto pagan?' ],
+        likes: 20,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/cumple-juan.jpg',
+        postDate: '2025-06-28T18:00:00Z',
+        description: 'Celebrando mis 32 con mi pastel favorito 🎂',
+        comments: [ 'Feliz cumple!', '¡Ese pastel se ve brutal!' ],
+        likes: 45,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/gato-tom.jpg',
+        postDate: '2025-07-01T10:00:00Z',
+        description: 'Amo este gato, se parece a mi 🐱',
+        comments: [ '¡Qué lindo!', 'Tom es el mejor.' ],
+        likes: 32,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/post-oferta.jpg',
+        postDate: '2025-07-02T14:00:00Z',
+        description: 'Estamos contratando, envía tu CV a juanh@securemail.com 📩',
+        comments: [ 'Listo, enviado', '¿Cuánto pagan?' ],
+        likes: 20,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
+    },
+    {
+        imageUrl: '/assets/cumple-juan.jpg',
+        postDate: '2025-06-28T18:00:00Z',
+        description: 'Celebrando mis 32 con mi pastel favorito 🎂',
+        comments: [ 'Feliz cumple!', '¡Ese pastel se ve brutal!' ],
+        likes: 45,
+        profileName: 'Juan Hacker',
+        profileAvatar: null,
     },
     // puedes agregar más pistas aquí...
 ];
@@ -49,7 +157,12 @@ AppDataSource
         await hintRepo.clear();
 
         for ( const hint of hints ) {
-            const entity = hintRepo.create( hint );
+            const fixedHint = {
+                ...hint,
+                profileAvatar: hint.profileAvatar === undefined ? null : hint.profileAvatar
+            };
+
+            const entity = hintRepo.create( fixedHint );
             await hintRepo.save( entity );
         }
 

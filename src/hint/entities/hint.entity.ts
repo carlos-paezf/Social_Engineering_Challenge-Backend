@@ -23,8 +23,8 @@ export class Hint {
   @Column()
   profileName: string;
 
-  @Column( { nullable: true } )
-  profileAvatar: string;
+  @Column( { type: 'text', nullable: true } )
+  profileAvatar?: string | null;
 }
 
 

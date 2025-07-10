@@ -1,26 +1,45 @@
-import { Injectable } from '@nestjs/common';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Group } from '../group/entities/group.entity';
+import { Ranking } from '../ranking/entities/ranking.entity';
+import { LoginDTO } from './dto/login.dto';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateAuthDto) {
-    return 'This action adds a new auth';
-  }
+  constructor (
+    private config: ConfigService,
+    @InjectRepository( Group )
+    private groupRepo: Repository<Group>,
+    @InjectRepository( Ranking )
+    private rankingRepo: Repository<Ranking>
+  ) { }
 
-  findAll() {
-    return `This action returns all auth`;
-  }
+  async attemptLogin ( dto: LoginDTO ) {
+    const { email, password, groupId } = dto;
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
+    const validEmail = this.config.get<string>( 'CHALLENGE_EMAIL' );
+    const validPassword = this.config.get<string>( 'CHALLENGE_PASSWORD' );
 
-  update(id: number, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
-  }
+    const group = await this.groupRepo.findOne( { where: { id: groupId } } );
+    if ( !group ) throw new UnauthorizedException( 'Grupo no encontrado' );
 
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
+    const success = email === validEmail && password === validPassword;
+
+    if ( success ) {
+      const existingRanking = await this.rankingRepo.findOne( { where: { group: { id: groupId } } } );
+      if ( !existingRanking ) {
+        const ranking = this.rankingRepo.create( {
+          group,
+          completedAt: new Date(),
+          attempts: 1, // inicial
+          timeTaken: 0 // será actualizado luego
+        } );
+        await this.rankingRepo.save( ranking );
+      }
+    }
+
+    return { success };
   }
 }
