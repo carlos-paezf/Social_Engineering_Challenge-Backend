@@ -16,6 +16,6 @@ export class Ranking {
     @Column( { type: "integer" } )
     attempts: number;
 
-    @Column( { type: 'datetime', default: () => 'CURRENT_TIMESTAMP' } )
+    @Column( { type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' } )
     completedAt: Date;
 }

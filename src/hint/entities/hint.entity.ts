@@ -14,7 +14,7 @@ export class Hint {
   @Column()
   description: string;
 
-  @Column( 'simple-array' )
+  @Column( 'text', { array: true } )
   comments: string[];
 
   @Column()
